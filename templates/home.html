@@ -1,14 +1,61 @@
 {% extends 'base.html' %} {% block content %}
-<img
-  src="https://images.credly.com/images/d383e88b-5884-464d-9064-05ad761d0eef/Database_Management_GVSU_Badge.png"
-  width="100"
-  height="100"
-  style="float: right; margin-right: 10px"
-/>
-<h1>Employer Database Management System</h1>
-<p>
-  This is a management system to Create, Read, Update, and Delete employees. Add
-  or Access employees link in the navbar. You can also update and delete
-  employees from the employees page.
+<h2>Applications</h2>
+{% if applications|length == 0 %}
+<p class="text-center text-muted">
+  This is a job applications management system to Create, Read, Update, and
+  Delete applications. Add or Access applications. You can also update and
+  delete applications.
 </p>
+
+<p class="text-center text-muted">No Applications</p>
+
+{% else %}
+<p class="text-center text-muted">
+  Total Applications: {{ applications|length }}
+</p>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Position</th>
+      <th>Link</th>
+      <th>Salary</th>
+      <th>Date Applied</th>
+      <th>Manage</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for app in applications %}
+    <tr>
+      <td>{{ app.id }}</td>
+      <td>{{ app.name }}</td>
+      <td>{{ app.position }}</td>
+      <td>
+        <a href="{{ app.link }}" target="_blank" rel="noopener noreferrer">
+          {{ app.link }}
+        </a>
+      </td>
+      <td>{{ app.salary }}</td>
+      <td>{{ app.date }}</td>
+      <td>
+        <a
+          href="{{ url_for('update_application', application_id=app.id) }}"
+          class="btn btn-primary btn-sm"
+          >Update</a
+        >
+        <a
+          href="{{ url_for('delete_application', application_id=app.id) }}"
+          class="btn btn-danger btn-sm"
+          >Delete</a
+        >
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endif %}
+<a href="{{ url_for('add_application') }}" class="btn btn-success mt-3">
+  Add New Application
+</a>
 {% endblock %}

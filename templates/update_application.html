@@ -1,0 +1,67 @@
+{% extends 'base.html' %} {% block content %}
+<h2>Update Application</h2>
+<form
+  method="POST"
+  action="{{ url_for('update_application', application_id=application.id) }}"
+>
+  <div class="mb-3">
+    <label for="name" class="form-label">Company Name:</label>
+    <input
+      type="text"
+      class="form-control"
+      name="name"
+      id="name"
+      value="{{ application.name }}"
+      required
+    />
+  </div>
+  <div class="mb-3">
+    <label for="position" class="form-label">Position Title:</label>
+    <input
+      type="text"
+      class="form-control"
+      name="position"
+      id="position"
+      value="{{ application.position }}"
+      required
+    />
+  </div>
+  <div class="mb-3">
+    <label for="link" class="form-label">Link:</label>
+    <input
+      type="url"
+      step="0.01"
+      class="form-control"
+      name="link"
+      id="link"
+      value="{{ application.link }}"
+      required
+    />
+  </div>
+  <div class="mb-3">
+    <label for="salary" class="form-label">Salary:</label>
+    <input
+      type="number"
+      step="0.01"
+      class="form-control"
+      name="salary"
+      id="salary"
+      value="{{ application.salary }}"
+      required
+    />
+  </div>
+  <div class="mb-3">
+    <label for="date" class="form-label">Date:</label>
+    <input
+      type="date"
+      step="0.01"
+      class="form-control"
+      name="date"
+      id="date"
+      value="{{ application.date }}"
+      required
+    />
+  </div>
+  <button type="submit" class="btn btn-primary">Update Application</button>
+</form>
+{% endblock %}
