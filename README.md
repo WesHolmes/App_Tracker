@@ -1,19 +1,6 @@
-# Employee Database Management System
+# Job Application Management System
 ## Overview
-This is a database management system built with Flask and SQLite. you can create, read, update, and delete withing the user UI.
-
-## Features
-- View employees in the database
-- Add new employees with name, position, and salary
-- Update existing employee details
-- Delete employees from the database
-- Simple UI using Bootstrap
-- SQLite database for lightweight local storage
-## Installation & Setup
-1. Clone Repo
-
-- git clone https://github.com/<"your-username">/database_management_system_project.git
-- cd database_managment_system_project
+This is a Application management system built with Flask and SQLite. you can create, read, update, and delete withing the user UI.
 
 2. Create Virtual Environment
 - python3 -m venv venv
@@ -36,4 +23,3 @@ This project is licensed under the MIT License.
 
 ### Author
 Westley Holmes - 2025
-# App_Tracker
